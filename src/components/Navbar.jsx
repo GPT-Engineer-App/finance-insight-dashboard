@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Box, Flex, Heading, Spacer, Button, IconButton } from "@chakra-ui/react";
-import { Link } from 'react-router-dom';
-
 import { FiMenu } from 'react-icons/fi';
 
 const Navbar = () => {
