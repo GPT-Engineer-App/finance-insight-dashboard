@@ -1,7 +1,7 @@
 import React from 'react';
-import { Box, VStack, Text, Link as ChakraLink, useColorModeValue } from "@chakra-ui/react";
+import { Box, VStack, Text, Link as ChakraLink, useColorModeValue, IconButton, Flex } from "@chakra-ui/react";
 import { Link as RouterLink } from 'react-router-dom';
-import { FiHome, FiFileText, FiSettings, FiUser } from 'react-icons/fi';
+import { FiHome, FiFileText, FiSettings, FiUser, FiX } from 'react-icons/fi';
 
 const SidebarItem = ({ icon, children, to }) => {
   return (
@@ -22,7 +22,7 @@ const SidebarItem = ({ icon, children, to }) => {
   );
 };
 
-const Sidebar = () => {
+const Sidebar = ({ isOpen, setIsOpen }) => {
   return (
     <Box
       as="nav"
@@ -38,14 +38,20 @@ const Sidebar = () => {
       borderRight="1px"
       borderRightColor={useColorModeValue('gray.200', 'gray.700')}
       w="60"
-      display={{ base: 'none', md: 'block' }}
+      display={{ base: isOpen ? 'block' : 'none', md: 'block' }}
     >
+      <Flex justify="space-between" align="center" p={5}>
+        <Text fontSize="2xl" fontWeight="bold" color={useColorModeValue('gray.800', 'white')}>
+          FinDash
+        </Text>
+        <IconButton
+          icon={<FiX />}
+          onClick={() => setIsOpen(false)}
+          display={{ base: 'flex', md: 'none' }}
+          aria-label="Close menu"
+        />
+      </Flex>
       <VStack align="stretch" spacing={0}>
-        <Box p={5}>
-          <Text fontSize="2xl" fontWeight="bold" color={useColorModeValue('gray.800', 'white')}>
-            FinDash
-          </Text>
-        </Box>
         <SidebarItem icon={<FiHome />} to="/">Dashboard</SidebarItem>
         <SidebarItem icon={<FiFileText />} to="/reports">Reports</SidebarItem>
         <SidebarItem icon={<FiSettings />} to="/settings">Settings</SidebarItem>
