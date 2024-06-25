@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Box, Flex, Heading, Spacer, Button, IconButton } from "@chakra-ui/react";
 import { Link } from 'react-router-dom';
 
@@ -20,7 +21,7 @@ const Navbar = () => {
           <Link to="/">FinDash</Link>
         </Heading>
         <Spacer />
-        <Button colorScheme="blue">Login</Button>
+        <Button as={Link} to="/login" colorScheme="blue">Login</Button>
       </Flex>
     </Box>
   );

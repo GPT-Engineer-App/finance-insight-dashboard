@@ -7,6 +7,7 @@ import Settings from "./pages/Settings";
 import Profile from "./pages/Profile";
 import Index from "./pages/Index.jsx";
 import Navbar from "./components/Navbar.jsx";
+import Login from "./pages/Login";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -22,6 +23,7 @@ function App() {
             <Route path="/reports" element={<Reports />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </Box>
       </Flex>
